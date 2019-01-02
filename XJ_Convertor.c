@@ -1,21 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include"xmlling.xml
+#include"xmlling.xml"
 //verification des parametres d'entrees
 int verifInputCommande(int argc,char const *argv[]){
 	int i;
 	for (i = 1; i < argc ; i++)
 	{
-		if(strcmp("-i",argv[i])==0){
-            if(i+1<argc){
-            	if(strcmp("xml",argv[i+1])==0 ){//retourne 1 si c'est un fichier xml
+	   if(strcmp("-i",argv[i])==0){
+                if(i+1<argc){
+            	   if(strcmp("xml",argv[i+1])==0 ){//retourne 1 si c'est un fichier xml
             		return 1;
-            	}else if (strcmp("json",argv[i+1])==0){//retourne 2 si c'est un fichier json
+            	   }else if (strcmp("json",argv[i+1])==0){//retourne 2 si c'est un fichier json
             		return 2;
-            	}
-            }
-		}
+            	   }
+                }
+	    } 
 	}
 	return 0;
 }
@@ -34,20 +34,18 @@ sorties*/
 int verifOutputCommande(int argc,char const *argv[]){
 	int i;
 	int t;
-	for (i = 1; i < argc ; i++)
-	{
-		if(strcmp("-o",argv[i])==0){
+	for (i = 1; i < argc ; i++) {
+	  if(strcmp("-o",argv[i])==0){
             if(i+1<argc){
             	t = strlen(argv[i+1]);
-            	if(t>4){
-            		
+            	 if(t>4){
             		if(argv[i+1][t-1]=='g' && argv[i+1][t-2]=='v' && argv[i+1][t-3]=='s' && argv[i+1][t-4]=='.'){
             			return 1;
             		}
-            	}
-            }
-		}
-	}
+            	   }
+              }
+          }
+      }
 	return 0;
 }
 char* getName(int argc,char const *argv[]){
@@ -75,11 +73,12 @@ char* Input_http(int argc,char const *argv[]){
 	for (i = 1; i < argc ; i++)
 	{
 		if(strcmp("-h",argv[i])==0){
-		  }	return (char *)argv[i+1];
+	         	return (char *)argv[i+1];
 		}
 	}
 	return 0 ;
-}int main(int argc,char const *argv[])
+}
+int main(int argc,char const *argv[])
 {
 	
 	int failed = 0;
