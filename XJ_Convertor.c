@@ -32,7 +32,6 @@ int verifTrace(int argc,char const *argv[]){
 }/*creation de la commande pour gerer les fichiers de
 sorties*/
 int verifOutputCommande(int argc,char const *argv[]){
-
 	int i;
 	int t;
 	for (i = 1; i < argc ; i++)
@@ -59,9 +58,28 @@ char* getName(int argc,char const *argv[]){
 			return (char *)argv[i+1];
 		}
 	}
-	return NULL;
+	 return NULL;
 }
-int main(int argc,char const *argv[])
+	char* FichierInput(int argc,char const *argv[]){
+	int i;
+	for (i = 1; i < argc ; i++)
+	{
+		if(strcmp("-f",argv[i])==0){
+			return (char *)argv[i+1];
+		}
+	}
+	return 0;
+}
+char* Input_http(int argc,char const *argv[]){
+	int i;
+	for (i = 1; i < argc ; i++)
+	{
+		if(strcmp("-h",argv[i])==0){
+		  }	return (char *)argv[i+1];
+		}
+	}
+	return 0 ;
+}int main(int argc,char const *argv[])
 {
 	
 	int failed = 0;
