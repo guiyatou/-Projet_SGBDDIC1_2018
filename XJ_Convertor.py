@@ -1,7 +1,6 @@
 import os
 import sys
 import json
-import json_validation
 import json_extraction
 import svgGenerator
 
@@ -13,7 +12,7 @@ def parseJSON(filePath):
     return j
 # FIN Fonction permettant d'extraire les donnees du fichier json en respectant le format
 
-if len(sys.argv) == 7:
+if len(sys.argv) == 7:  
 
     fileType = sys.argv[2]
     inputType = sys.argv[3]
