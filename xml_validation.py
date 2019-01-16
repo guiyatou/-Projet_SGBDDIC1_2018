@@ -1,4 +1,4 @@
-
+import XJ_Convertor
 import xml.etree.ElementTree as ET
 import xml_extraction
 
@@ -14,7 +14,7 @@ def xml_validator(file):
     return parsedFile.getroot()
   except Exception as e:
     print("---Erreur: le fichier xml %s n'a pas une bonne syntaxe" % file)
-    print(" voila c'est ça l'erreur %s" %e)
+    print(" voila c'est ca l'erreur %s" %e)
     return False
 
 if __name__ == "__main__":

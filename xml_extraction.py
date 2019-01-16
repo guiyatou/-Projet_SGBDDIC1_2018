@@ -1,4 +1,4 @@
-
+import xJ_Convertor
 
 def extractXmlFile(myXmlFIle):
     diagramme= myXmlFIle.getchildren()
@@ -18,7 +18,7 @@ def extractXmlFile(myXmlFIle):
             for attributes in entite_child:
                 print("\t\t%s" % (attributes.tag))
                 thisElementAttributes.append(attributes.tag)
-                #Recuperation des noms d'entitées et d'associations
+                #Recuperation des noms d'entitees et d'associations
                 if thisElementType=="entite":
                     allEntitiesName.append(thisElementName)
                 else:
