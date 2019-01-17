@@ -14,8 +14,7 @@ def getExtractedData(myJsondata,fjson):
 
         extractedData["allEntities"] = listEntites
         # Recuperation des noms des entités que l'on enregistre dans la variable "listEntites"
-
-        #print('Liste des entites et leurs attributs: ')
+        
         for i in range(len(listEntites)):
                 listAttributs = []
                 listAssocs = []
@@ -29,17 +28,10 @@ def getExtractedData(myJsondata,fjson):
         for i in range(len(listEntites)):
         # Recuperations des differentes associations
                 nbAssocs = len(myJsondata[i]['relations']['associations'])
-        #print(nbAssocs)
         for j in range(nbAssocs):
-                # for key in fichierjson[i][listEntites[i]]['relations']['associations'][j].keys():
-                #     listAssocs.append(key)
-                #     print(key)
                 nomAutreEntite = fjson[i]['relations']['associations'][j]["nomAutreEntite"]
-                # cardDeb = fichierjson[i][listEntites[i]]['relations']['associations'][j]["cardDeb"]
-                # cardFin = fichierjson[i][listEntites[i]]['relations']['associations'][j]["cardFin"]
                 nomAssoc = myJsondata[i]['relations']['associations'][j]["nomAssoc"]
-                #print(nomAssoc)
-        #print(extractedData)
+               
         return extractedData
         #Recuperation des attributs d'une entitée
 def getAttributesEntity(data,entityName):
