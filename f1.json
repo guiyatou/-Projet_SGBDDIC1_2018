@@ -1,0 +1,16 @@
+{
+  "Client": {
+    "id": "1052",
+    "nom": "Thiam",
+    "Prenom": "Mami"
+  }
+  ,
+  "Commande": {
+    "id": "A016",
+    "modepayement": "carte"
+  }
+  ,
+  "Commander": {
+    "Date": "20/03/2015"
+  }
+} 
