@@ -1,6 +1,7 @@
-import XJ_Convertor
-import xml.etree.ElementTree as ET
 import xml_extraction
+import xml.etree.ElementTree as ET
+#Projet_SGBD/XJ_Convertor.py
+
 
 # analyse du fichier xml
 def parsefile(file):
@@ -10,7 +11,6 @@ def parsefile(file):
 def xml_validator(file):
   try:
     parsedFile = parsefile(file)
-    print(parsedFile)
     return parsedFile.getroot()
   except Exception as e:
     print("---Erreur: le fichier xml %s n'a pas une bonne syntaxe" % file)

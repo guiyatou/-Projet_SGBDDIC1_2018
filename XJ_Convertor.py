@@ -1,8 +1,7 @@
 import os
 import sys
 import json
-#import json_extraction
-#import svgGenerator
+import json_validation,xml_validation,xml_extraction
 
 # DEBUT Fonction permettant d'extraire les donnees du fichier json en respectant le format
 def parseJSON(filePath):
@@ -12,7 +11,7 @@ def parseJSON(filePath):
     return j
 # FIN Fonction permettant d'extraire les donnees du fichier json en respectant le format
 
-if len(sys.argv) == 7:  
+if len(sys.argv) == 7:
 
     fileType = sys.argv[2]
     inputType = sys.argv[3]
@@ -24,12 +23,11 @@ if len(sys.argv) == 7:
         fileName, fileExt = os.path.splitext(myfile)
         fileExt = fileExt.lower()
 
-    svgFile = sys.argv[6]    
+    svgFile = sys.argv[6]
 
     if __name__ == "__main__":
         if inputType == '-f':
-            # Verification si le fichier en
-            #  entree existe
+            # Verification si le fichier en entree existe
             if not(os.path.exists(myfile)):
                 print('---Erreur: Ce fichier n\'existe pas !')
             else:
@@ -38,12 +36,8 @@ if len(sys.argv) == 7:
                     if (fileExt != '.json'):
                         print('---Erreur: Veuillez entrer un fichier JSON')
                     else:
-                        myJsondata = json_validation.json_validator(myfile)
-                        if myJsondata:
-
-                            extractedData = json_extraction.getExtractedData(myJsondata,myJsondata)    
-                            svgGenerator.drowMySvgFile(svgFile,extractedData)
-                       
+                        if json_validation.json_validator(myfile):
+                            import generation_svg
                         else:
                             print(myJsondata)
 
@@ -51,22 +45,21 @@ if len(sys.argv) == 7:
                     if (fileExt != '.xml'):
                         print('---Erreur: Veuillez entrer un fichier XML')
                     else:
-                        if validation.xml_validator(myfile):
-                            print('Traitement du fichier XML')
-                        else:
-                            validation.xml_validator(myfile)
-                else:
+                        myXmlFile=xml_validation.xml_validator(myfile)
+                        if myXmlFile:
+                            extractedXmlFile = xml_extraction.extractXmlFile(myXmlFile)
+                            
+                else:  
                     print("---Erreur: Veuillez specifier un type de fichier correct.")
                     print("---Votre choix: "+fileType)
                 
         elif inputType == '-h':
                     url = sys.argv[4]
                     print(url)
-                    if fileType == 'json':                      
-                        import create_svg_json
+                    if fileType == 'json':
+                        import rouguisvg     
         else:
                     print("---Erreur: Veuillez specifier un type d'acquisition de fichier correct.")
                     print("---Votre choix: "+inputType)
 else:
-
- print('Erreur: Nombre darguments incorrect.')
+    print('Erreur: Nombre darguments incorrect.')
