@@ -1,16 +1,41 @@
-{
-  "Client": {
-    "id": "1052",
-    "nom": "Thiam",
-    "Prenom": "Mami"
+[
+  {
+    "Client": [
+      {
+        "No Client": "R2405",
+        "Nom": "Thiam",
+        "Prenom": "Rouguiya"
+      },
+      { 
+        "No Client": "K25",
+        "Nom": "kama",
+        "Prenom": "Khady" 
+      }
+    ],
+    "relations": {
+      "associations": [
+        {
+          "nomAutreEntite": "Produit",
+          "nomAssoc": "Commander",
+          "cardDeb": "(0, n)",
+          "cardFin": "(0, 1)"
+        }
+      ]
+    }
+  },
+  {
+    "Produit": [
+      {
+        "id Produit": "pr12",
+        "Titre": "Nutella",
+        "Categorie": "Aliments",
+        "Prix": 6500
+      }
+    ],
+    "relations": {
+      "associations": [
+
+      ]
+    }
   }
-  ,
-  "Commande": {
-    "id": "A016",
-    "modepayement": "carte"
-  }
-  ,
-  "Commander": {
-    "Date": "20/03/2015"
-  }
-} 
+]

@@ -1,38 +1,36 @@
-
 import requests
 import json
 
-def getExtractedData(myJsondata,fjson):
-        extractedData = dict()
-        listEntites = []
+def ExtraireDonnee(Jsondata,f1):
+        extractionDonnee = dict()
+        LEntites = []
         #Récuperation de la liste des entités
 
-        for i in range(len(myJsondata)):
-                keys = myJsondata[i].keys()
+        for i in range(len(Jsondata)):
+                keys = Jsondata[i].keys()
                 key = next(iter(keys))
-                listEntites.append(key)
+                LEntites.append(key)
 
-        extractedData["allEntities"] = listEntites
-        # Recuperation des noms des entités que l'on enregistre dans la variable "listEntites"
-        
-        for i in range(len(listEntites)):
-                listAttributs = []
-                listAssocs = []
+        extractionDonnee["allEntities"] = LEntites
+        # Recuperation des noms des entités que l'on enregistre dans la variable "listEntites
+
+        for i in range(len(LEntites)):
+                LAttributs = []
+                LAssocs = []
 
                 # Recuperation des noms des attributs que l'on enregistre dans la variable "listAttributs"
-                nbAttributs = len(myJsondata[i][listEntites[i]][0].keys())
-                extractedData[listEntites[i]] = dict()
-                for key in fjson[i][listEntites[i]][0].keys():
-                        listAttributs.append(key)
-                extractedData[listEntites[i]]["attributes"] = listAttributs
-        for i in range(len(listEntites)):
+                nbAttributs = len(Jsondata[i][LEntites[i]][0].keys())
+                extractionDonnee[LEntites[i]] = dict()
+                for key in f1[i][LEntites[i]][0].keys():
+                        LAttributs.append(key)
+                extractionDonnee[LEntites[i]]["attributes"] = LAttributs
+        for i in range(len(LEntites)):
         # Recuperations des differentes associations
-                nbAssocs = len(myJsondata[i]['relations']['associations'])
+                nbAssocs = len(Jsondata[i]['relations']['associations'])
         for j in range(nbAssocs):
-                nomAutreEntite = fjson[i]['relations']['associations'][j]["nomAutreEntite"]
-                nomAssoc = myJsondata[i]['relations']['associations'][j]["nomAssoc"]
-               
-        return extractedData
+                nomAutreEntite = f1[i]['relations']['associations'][j]["nomAutreEntite"]
+                nomAssoc = Jsondata[i]['relations']['associations'][j]["nomAssoc"]
+        return extractionDonnee
         #Recuperation des attributs d'une entitée
 def getAttributesEntity(data,entityName):
         return data[entityName]["attributes"]
