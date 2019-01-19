@@ -1,14 +1,16 @@
-import xJ_Convertor
+#import xJ_Convertor
+#import xml_validation 
 
 def extractXmlFile(myXmlFIle):
     diagramme= myXmlFIle.getchildren()
     allEntitiesName = list()
     allAssocName = list()
     extractedXmlFile = dict()
-    extractedXmlFile["entities"] = dict()
+    extractedXmlFile["entities"] = dict()  
     extractedXmlFile["assoc"] = dict()
     for entite in diagramme:
         entite_children = entite.getchildren()
+        
         thisElementAttributes = list()
         for entite_child in entite_children:
             thisElementType = entite.tag
@@ -25,7 +27,7 @@ def extractXmlFile(myXmlFIle):
                     if thisElementType=="association":
                         allAssocName.append(entite_child.text)
             if thisElementType=="entite":
-                print("Okkkkk")
+                # print("Okkkkk")
                 extractedXmlFile["entities"][thisElementName] = {"entityName":thisElementName,"attributes":thisElementAttributes}
             else:
                 if thisElementType=="association":
