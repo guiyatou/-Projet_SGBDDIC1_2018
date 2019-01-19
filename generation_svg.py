@@ -2,6 +2,8 @@ import pip
 import svgwrite
 import XJ_Convertor
 import requests
+import xml_validation
+import xml_extraction
 
 if XJ_Convertor.inputType == '-f':
     JsonData = XJ_Convertor.parseJSON(XJ_Convertor.myfile)
@@ -374,3 +376,4 @@ for i in range(len(LEntites)):
                     )
 
 document_svg.save()
+

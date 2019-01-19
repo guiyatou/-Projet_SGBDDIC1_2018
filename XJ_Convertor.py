@@ -28,7 +28,8 @@ if len(sys.argv) == 7:
 
     if __name__ == "__main__":
         if inputType == '-f':
-            # Verification si le fichier en entree existe
+            # Verification si le fichier en
+            #  entree existe
             if not(os.path.exists(myfile)):
                 print('---Erreur: Ce fichier n\'existe pas !')
             else:

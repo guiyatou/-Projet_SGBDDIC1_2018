@@ -19,5 +19,6 @@ def xml_validator(file):
 
 if __name__ == "__main__":
   myXmlFile = xml_validator("fichier.xml")
-  extractedXmlFile = xml_extraction.extractXmlFile(myXmlFile)
-  print(extractedXmlFile)
+  if myXmlFile!=False:
+    extractedXmlFile = xml_extraction.extractXmlFile(myXmlFile)
+    print(extractedXmlFile)
